@@ -1,4 +1,10 @@
-# Reproducible Research: Assessment 1
+---
+title: 'Reproducible Research: Assessment 1'
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+---
 
 ## Loading and preprocessing the data
 
@@ -17,7 +23,7 @@ dailySteps <- ddply(cleanData, .(date), summarise, steps=sum(steps))
 hist(dailySteps$steps, main = "Total Steps Each Day", xlab="Steps per day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 ```r
 # Mean daily steps
@@ -45,7 +51,7 @@ plot(averageDaily$interval, averageDaily$steps, type="l", xlab="5 minute interva
 ylab="Average steps",main="Average Daily Activity (all days)")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 ```r
 # Maximum nupers of steps (per 5 minute interval), across all days: 
@@ -85,7 +91,7 @@ hist(averageDaily$steps, main="Number of Steps",
      xlab="steps taken each day",,)
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 ```r
 # Mean steps of new data set:
@@ -118,5 +124,5 @@ averageWeek <- ddply(dataWeekdays, .(interval, wk), summarise, steps=mean(steps)
 xyplot(steps ~ interval | wk, data = averageWeek, layout = c(1, 2), type="l")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
